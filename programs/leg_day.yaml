@@ -1,0 +1,15 @@
+name: "Leg Day"
+description: "Squats, lunges, and core stability."
+steps:
+  - exercise: "Squat"
+    sets: 4
+    reps: 10
+    rest_sec: 75
+  - exercise: "Lunge"
+    sets: 3
+    reps: 10
+    rest_sec: 60
+  - exercise: "Plank"
+    sets: 2
+    seconds: 45
+    rest_sec: 45

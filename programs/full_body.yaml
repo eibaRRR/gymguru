@@ -1,0 +1,19 @@
+name: "Full Body"
+description: "Balanced 30-minute full-body session."
+steps:
+  - exercise: "Squat"
+    sets: 3
+    reps: 10
+    rest_sec: 60
+  - exercise: "Push-up"
+    sets: 3
+    reps: 10
+    rest_sec: 60
+  - exercise: "Bicep Curl"
+    sets: 3
+    reps: 12
+    rest_sec: 45
+  - exercise: "Plank"
+    sets: 2
+    seconds: 30
+    rest_sec: 45

@@ -1,0 +1,20 @@
+services:
+  gymguru:
+    build: .
+    image: gymguru:latest
+    container_name: gymguru
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    environment:
+      - GYMGURU_HISTORY_DIR=/data
+      # Pulled from a local `.env` file (see .env.example). Never commit secrets.
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GYMGURU_POSE_MODEL=${GYMGURU_POSE_MODEL:-/app/models/pose_landmarker_lite.task}
+    volumes:
+      - gymguru_data:/data
+
+volumes:
+  gymguru_data: {}
+# WebRTC negotiates its own UDP ports peer-to-peer; no extra port mapping
+# is needed when running locally against localhost.

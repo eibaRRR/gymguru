@@ -1,0 +1,15 @@
+name: "Push Day"
+description: "Chest / shoulders / triceps focus."
+steps:
+  - exercise: "Push-up"
+    sets: 3
+    reps: 10
+    rest_sec: 60
+  - exercise: "Shoulder Press"
+    sets: 3
+    reps: 8
+    rest_sec: 75
+  - exercise: "Plank"
+    sets: 3
+    seconds: 30
+    rest_sec: 45

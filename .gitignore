@@ -1,0 +1,34 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Virtualenvs ---
+.venv/
+venv/
+env/
+
+# --- Secrets / local config ---
+.env
+.env.*
+!.env.example
+
+# --- GymGuru runtime ---
+models/                 # downloaded MediaPipe .task files (Docker pulls them)
+.gymguru/               # local per-athlete history when run outside Docker
+*.task
+
+# --- Devin / agent tooling ---
+.devin/
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
