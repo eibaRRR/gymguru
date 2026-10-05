@@ -21,7 +21,7 @@ env/
 
 # --- GymGuru runtime ---
 models/                 # downloaded MediaPipe .task files (Docker pulls them)
-.gymguru/               # local per-athlete history when run outside Docker
+.gymguru/               # local per-athlete history when run outside Dockerr
 *.task
 
 # --- Devin / agent tooling ---
