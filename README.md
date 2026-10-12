@@ -387,6 +387,43 @@ at build time. Switch at runtime by setting `GYMGURU_POSE_MODEL`.
 The container does **not** need device access — the browser captures the
 webcam, not the server.
 
+### Pull the published image (Docker Hub)
+
+The CI pipeline builds and pushes the image to Docker Hub on every push to
+`main` (and on `v*` tags). Run the published image without building locally:
+
+```bash
+# Option 1 — docker compose
+export GYMGURU_IMAGE=<dockerhub-username>/gymguru:latest
+docker compose pull
+docker compose up
+
+# Option 2 — plain docker
+docker pull <dockerhub-username>/gymguru:latest
+docker run --rm -p 8501:8501 -v gymguru_data:/data <dockerhub-username>/gymguru:latest
+```
+
+Open [http://localhost:8501](http://localhost:8501).
+
+### CI → registry ("DevOps" delivery chain)
+
+`.github/workflows/docker-image.yml` implements **Code → Test → Build → Push**:
+
+- `tests.yml` runs `pytest` on Python 3.11 & 3.12 for every push / PR.
+- `docker-image.yml` logs in to Docker Hub and pushes multi-tagged images
+  (`latest`, branch, semver tag, and short SHA) using Buildx with GHA cache.
+
+Required repository secrets (Settings → Secrets and variables → Actions):
+
+| Secret                | Description                                   |
+| --------------------- | --------------------------------------------- |
+| `DOCKERHUB_USERNAME`  | Your Docker Hub username                      |
+| `DOCKERHUB_TOKEN`     | Docker Hub access token (Read & Write)        |
+
+> 🔐 The token is a **secret** — create it at
+> https://hub.docker.com → Account Settings → Personal access tokens.
+> Never commit it; the workflow reads it from repository secrets.
+
 ---
 
 ## 🧭 Roadmap

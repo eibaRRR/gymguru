@@ -1,7 +1,10 @@
 services:
   gymguru:
     build: .
-    image: gymguru:latest
+    # Pull the published image from Docker Hub instead of building locally:
+    #   docker compose pull && docker compose up
+    # Override the registry via GYMGURU_IMAGE (see .env.example).
+    image: ${GYMGURU_IMAGE:-gymguru:latest}
     container_name: gymguru
     ports:
       - "8501:8501"
